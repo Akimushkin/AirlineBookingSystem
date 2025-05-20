@@ -28,3 +28,4 @@ namespace AirlineBookingSystem.Notifications.Infrastructure.Repositories
             await _dbConnection.ExecuteAsync(sql, notification);
         }
     }
+}
