@@ -12,5 +12,6 @@ namespace AirlineBookingSystem.Notifications.Core.Entities
         public string Recepient { get; set; }
         public string Message { get; set; }
         public string Type { get; set; } // Email, SMS, etc.
+        public DateTime SentAt { get; set; }
     }
 }

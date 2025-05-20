@@ -21,8 +21,8 @@ namespace AirlineBookingSystem.Notifications.Infrastructure.Repositories
         public async Task LogNotificationAsync(Notification notification)
         {
             const string sql = @"
-                INSERT INTO Notifications (Id, Recepient, Message, Type)
-                VALUES (@Id, @Recepient, @Message, @Type)
+                INSERT INTO Notifications (Id, Recepient, Message, Type, SentAt)
+                VALUES (@Id, @Recepient, @Message, @Type, @SentAt)
             ";
 
             await _dbConnection.ExecuteAsync(sql, notification);
