@@ -7,5 +7,5 @@ using System.Threading.Tasks;
 
 namespace AirlineBookingSystem.Flights.Application.Commands
 {
-    public record DeliteFlightCommand (Guid Id) : IRequest;
+    public record DeleteFlightCommand (Guid Id) : IRequest;
 }
