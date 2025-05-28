@@ -1,7 +1,9 @@
+using AirlineBookingSystem.Payments.Application.Handlers;
 using AirlineBookingSystem.Payments.Core.Repositories;
 using AirlineBookingSystem.Payments.Infrastructure.Repositories;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,8 +14,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Register MediatR
+var assemblies = new Assembly[]
+{
+    Assembly.GetExecutingAssembly(),
+    typeof(ProcessPaymentHandler).Assembly,
+    typeof(RefundPaymentHandler).Assembly
+};
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies));
+
+
 //Application Services
-builder.Services.AddScoped<IPaymantRepository, PaymentRepository>();
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 
 //Add Sql Connetion
 builder.Services.AddScoped<IDbConnection>(sp => new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));

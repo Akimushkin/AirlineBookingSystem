@@ -10,7 +10,7 @@ using Dapper;
 
 namespace AirlineBookingSystem.Payments.Infrastructure.Repositories
 {
-    public class PaymentRepository: IPaymantRepository
+    public class PaymentRepository: IPaymentRepository
     {
         private readonly IDbConnection _dbConnection;
 
@@ -19,7 +19,7 @@ namespace AirlineBookingSystem.Payments.Infrastructure.Repositories
             _dbConnection = dbConnection;
         }
 
-        public async Task ProcessPaymentAsunc(Paymant payment)
+        public async Task ProcessPaymentAsunc(Payment payment)
         {
             const string sql = @"
                 INSERT INTO [dbo].[Payments](Id,BookingId,Amount,PaymentDate)

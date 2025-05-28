@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace AirlineBookingSystem.Payments.Core.Repositories
 {
-    public interface IPaymantRepository
+    public interface IPaymentRepository
     {
-        Task ProcessPaymentAsunc(Paymant payment);
-        Task RefundPaymantAsync(Guid id);
+        Task ProcessPaymentAsunc(Payment payment);
+        Task RefundPaymantAsync(Guid Id);
     }
 }
