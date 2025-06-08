@@ -24,8 +24,8 @@ namespace AirlineBookingSystem.Flights.Infrastructure.Repositories
         public async Task AddFlightAsync(Flight flight)
         {
             const string sql = @"
-                INSERT INTO Flights (Id, FlightNubmer, Origin, Destination, DepartureTime, ArrivalTime)
-                VALUES (@Id, @FlightNubmer, @Origin, @Destination, @DepartureTime, @ArrivalTime)
+                INSERT INTO Flights (Id, FlightNumber, Origin, Destination, DepartureTime, ArrivalTime)
+                VALUES (@Id, @FlightNumber, @Origin, @Destination, @DepartureTime, @ArrivalTime)
             ";
 
             await _dbConnection.ExecuteAsync(sql, flight);

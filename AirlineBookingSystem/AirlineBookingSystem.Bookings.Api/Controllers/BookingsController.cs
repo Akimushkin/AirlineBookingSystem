@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AirlineBookingSystem.Bookings.Api.Controllers
 {
     [ApiController]
-    [Route("[api/bookings]")]
+    [Route("api/bookings")]
     public class BookingsController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -25,7 +25,7 @@ namespace AirlineBookingSystem.Bookings.Api.Controllers
             return CreatedAtAction(nameof(GetBookingById), new { id }, command);
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetBookingById(Guid id)
         {
             var booking = await _mediator.Send(new GetBookingQuery(id));

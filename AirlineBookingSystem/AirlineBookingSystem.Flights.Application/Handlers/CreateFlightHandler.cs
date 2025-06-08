@@ -24,7 +24,7 @@ namespace AirlineBookingSystem.Flights.Application.Handlers
             var flight = new Flight
             {
                 Id = Guid.NewGuid(),
-                FlightNubmer = request.FlightNumber,
+                FlightNumber = request.FlightNumber,
                 Origin = request.Origin,
                 Destination = request.Destonation,
                 DepartureTime = request.DepartureTime,
