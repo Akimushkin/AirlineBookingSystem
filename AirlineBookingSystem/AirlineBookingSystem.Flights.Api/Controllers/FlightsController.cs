@@ -38,7 +38,7 @@ namespace AirlineBookingSystem.Flights.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteFlight(Guid id)
         {
-            await _mediator.Send(new DeleteFlightCommand);
+            await _mediator.Send(new DeleteFlightCommand(id));
 
             return NoContent();
         }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AirlineBookingSystem.Flights.Application.Handlers
 {
-    public class DeleteFlightHandler : IRequestHandler<DeliteFlightCommand> 
+    public class DeleteFlightHandler : IRequestHandler<DeleteFlightCommand> 
     {
         private readonly IFlightRepository _repository;
 
@@ -18,7 +18,7 @@ namespace AirlineBookingSystem.Flights.Application.Handlers
             _repository = repository;
         }
 
-        public async Task Handle(DeliteFlightCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteFlightCommand request, CancellationToken cancellationToken)
         {
             await _repository.DeleteFlightAsync(request.Id);
         }
